@@ -1,0 +1,31 @@
+h1 
+{
+    display: flex;
+    justify-content: center;
+    color: red;
+    font-family: 'Courier New', Courier, monospace;
+}
+.line
+{
+    height: 5px;
+    background-color: blue;
+}
+.question
+{
+    background-color: darkturquoise;
+    color:black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.two
+{
+    color: chartreuse;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+pre 
+{
+    font-size: 18px;
+    font-weight: bold;
+    color: orangered;
+}

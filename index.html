@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Array of Object</title>
+</head>
+<body>
+    <h1>**Array of Object**</h1>
+    <hr class="line">
+    <h2 class="question">Q-1.let studentRecord=[{name:"john",id:123,mark:98},{name:"Baba",id:101,mark:23},
+        {name:"yoga",id:200,mark:45},{name:"Wick",id:115,mark:75}] We are interested in retrieving
+        only name; all name should be be in caps["JOHN","BABA","YOGA","WICK"]
+    </h2>
+    <p>ANS:- <span class="two">OUTPUT:-[ 'JOHN', 'BABA', 'YOGA', 'WICK' ]</span></p>
+    <pre>
+        let studentRecord=[{name:"john",id:123,mark:98},
+                   {name:"Baba",id:101,mark:23},
+                   {name:"yoga",id:200,mark:45},
+                   {name:"Wick",id:115,mark:75}
+                ];
+        let studentName=studentRecord.map(function(student){
+                  return student.name.toUpperCase();
+            });
+                 console.log(studentName); 
+                 
+                 
+            OUTPUT:- [ 'JOHN', 'BABA', 'YOGA', 'WICK' ]    
+    </pre>
+    <h2 class="question">Q-2.let studentRecord=[{name:"john",id:123,mark:98},{name:"Baba",id:101,mark:23},
+        {name:"yoga",id:200,mark:45},{name:"Wick",id:115,mark:75}] Suppose we have the same dataset
+        as above but this time we to get the details of the students who scored more the 50 marks
+        [{name:"john",id:123,mark:98},{name:"Wick",id:115,mark:75}]
+    </h2>
+    <p>ANS:- <span class="two">OUTPUT:-
+      [
+        { name: 'john', id: 123, mark: 98 },
+        { name: 'Wick', id: 115, mark: 75 }
+      ]
+      </span></p>
+    <pre>
+        let studentRecord=[{name:"john",id:123,mark:98},
+                   {name:"Baba",id:101,mark:23},
+                   {name:"yoga",id:200,mark:45},
+                   {name:"Wick",id:115,mark:75}
+                ];
+          let highMark=studentRecord.filter((student)=>{
+                   return student.mark>50;
+        });
+                   console.log(highMark);
+
+
+            OUTPUT:- [
+            { name: 'john', id: 123, mark: 98 },
+            { name: 'Wick', id: 115, mark: 75 }
+          ]                
+    </pre>
+
+<h2 class="question">Q-3.let studentRecord=[{name:"john",id:123,mark:98},{name:"Baba",id:101,mark:23},
+    {name:"yoga",id:200,mark:45},{name:"Wick",id:115,mark:75}] Retrive the details of  students who 
+    score more than 50 and have IDs greater than 120.
+</h2>
+<p>ANS:- <span class="two">OUTPUT:-[ { name: 'john', id: 123, mark: 98 } ]</span></p>
+<pre>
+    let studentRecord=[{name:"john",id:123,mark:98},
+                   {name:"Baba",id:101,mark:23},
+                   {name:"yoga",id:200,mark:45},
+                   {name:"Wick",id:115,mark:75}
+                ];
+    let result=studentRecord.filter(student=>student.mark>50 && student.id>120);
+    console.log(result);
+
+
+        OUTPUT:-[ { name: 'john', id: 123, mark: 98 } ]
+</pre>
+<h2 class="question">Q-4.let studentRecord=[{name:"john",id:123,mark:98},{name:"Baba",id:101,mark:23},
+    {name:"yoga",id:200,mark:45},{name:"Wick",id:115,mark:75}] Consider the same scenario we have discussed
+    above,but this time we would like to know the sum total of the mark of the students.
+</h2>
+<p>ANS:- <span class="two">OUTPUT:-TotalMark-241</span></p>
+<pre>
+    let studentRecord=[{name:"john",id:123,mark:98},
+                   {name:"Baba",id:101,mark:23},
+                   {name:"yoga",id:200,mark:45},
+                   {name:"Wick",id:115,mark:75}
+                ];
+    let TotalMark=studentRecord.reduce((pre,cur)=>pre+cur.mark,0);
+    console.log(TotalMark); 
+
+
+    OUTPUT:-TotalMark-241
+</pre>
+<h2 class="question">Q-5.let studentRecord=[{name:"john",id:123,mark:98},{name:"Baba",id:101,mark:23},
+    {name:"yoga",id:200,mark:45},{name:"Wick",id:115,mark:75}] This time we want to get only the studentName
+    of the students who scored more than 50 marks from the same dataset used above .
+</h2>
+<p>ANS:- <span class="two">OUTPUT:-[ 'john', 'Wick' ] <br>spread Using output...
+    <br> 
+    OUTPUT:-john,Wick</span></p>
+<pre>
+    let studentRecord=[{name:"john",id:123,mark:98},
+                   {name:"Baba",id:101,mark:23},
+                   {name:"yoga",id:200,mark:45},
+                   {name:"Wick",id:115,mark:75}
+                ];
+
+        let process1=studentRecord.filter(student=>student.mark>50);
+        
+        let studentNameOnly=process1.map(student=>student.name);
+        // By Using spread output...
+            console.log(studentNameOnly);
+
+
+
+         OUTPUT:- [ 'john', 'Wick' ] 
+         
+         spread Using output... 
+         OUTPUT:-john,Wick
+</pre>
+<h2 class="question">Q-6.let studentRecord=[{name:"john",id:123,mark:98},{name:"Baba",id:101,mark:23},
+    {name:"yoga",id:200,mark:45},{name:"Wick",id:115,mark:75}] This time we are to required to print
+    the sum of marks of the students with id >120.
+</h2>
+<p>ANS:- <span class="two">OUTPUT:-143</span></p>
+<pre>
+    let studentRecord=[{name:"john",id:123,mark:98},
+                   {name:"Baba",id:101,mark:23},
+                   {name:"yoga",id:200,mark:45},
+                   {name:"Wick",id:115,mark:75}
+                ];
+
+        let process=studentRecord.filter(student=>student.id>120);
+        
+        let Sum=process.reduce((pre,cur)=>pre+cur.mark,0);
+            console.log(Sum);
+
+
+        OUTPUT:-143    
+</pre>
+
+<h2 class="question">Q-7.let studentRecord=[{name:"john",id:123,mark:98},{name:"Baba",id:101,mark:23},
+    {name:"yoga",id:200,mark:45},{name:"Wick",id:115,mark:75}] This time we are required to print
+    the total marks of the students with marks greater than 50 after a grace of 15 marks has been
+    added to those students who scored less than 50.
+</h2>
+<p>ANS:- <span class="two">OUTPUT:-233</span></p>
+<pre>
+    let studentRecords = [
+    {name: 'John', id: 123, marks : 98 },
+    {name: 'Baba', id: 101, marks : 23 },
+    {name: 'yaga', id: 200, marks : 45 },
+    {name: 'Wick', id: 115, marks : 75 }
+  ];
+  
+  let updated= studentRecords.map(student => {
+    if (student.marks < 50) {
+      return { ...student, marks: student.marks + 15 };
+    } else {
+      return student;
+    }
+  });
+  
+  let filteredRecords = updated.filter(record => record.marks > 50);
+  let totalMarks = filteredRecords.reduce((pre,cur) => pre+cur.marks, 0);
+  console.log(totalMarks);
+
+
+  OUTPUT:-233
+</pre>
+
+<h2 class="question">Q-8.Create 6 object,each object will have name,class,roll no as properties.
+    Store these objects in array of objects?
+</h2>
+<p>ANS:- <span class="two">OUTPUT:-
+[
+    { name: 'Niyaz', class: 'first', rollNo: 101 },
+    { name: 'Sonu', class: 'second', rollNo: 102 },
+    { name: 'John', class: 'third', rollNo: 103 },
+    { name: 'Saif', class: 'fourth', rollNo: 104 },
+    { name: 'Munna', class: 'fifth', rollNo: 105 },
+    { name: 'Azad', class: 'sixth', rollNo: 106 }
+]
+</span></p>
+<pre>
+    let student1={name:"Niyaz",class:"first",rollNo:101};
+    let student2={name:"Sonu",class:"second",rollNo:102};
+    let student3={name:"John",class:"third",rollNo:103};
+    let student4={name:"Saif",class:"fourth",rollNo:104};
+    let student5={name:"Munna",class:"fifth",rollNo:105};
+    let student6={name:"Azad",class:"sixth",rollNo:106};
+
+                let AllStudents=[student1,student2,student3,student4,student5,student6];
+
+                         console.log(AllStudents);
+
+
+        OUTPUT:-
+        [
+          { name: 'Niyaz', class: 'first', rollNo: 101 },
+          { name: 'Sonu', class: 'second', rollNo: 102 },
+          { name: 'John', class: 'third', rollNo: 103 },
+          { name: 'Saif', class: 'fourth', rollNo: 104 },
+          { name: 'Munna', class: 'fifth', rollNo: 105 },
+          { name: 'Azad', class: 'sixth', rollNo: 106 }
+        ]                 
+</pre>  
+</body>
+<script scr="./script.js"></script>
+</html>
